@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pelican = ">=4.0.1"
+Markdown = ">=3.0.1"
+invoke = ">=1.2.0"
+pillow = ">=5.4.1"
+
+[dev-packages]
+pylint = "*"
+
+[scripts]
+download-theme = "git clone -b template --single-branch 'https://github.com/frro-soporte/frro-soporte.github.io.git' theme"
+download-content = "git clone -b content --single-branch 'https://github.com/frro-soporte/frro-soporte.github.io.git' aux"
+move-content = "cp -r aux/. content"
+copy-extra = "cp -r extra/. content/extra/"
+build = "pelican -s conf.py -o output -t theme content"
+copy-windows-theme = 'xcopy /E /I /Y /Q "D:\Repositories\personal\MinimalXYZ" theme\ '
+copy-windows-content = 'xcopy /E /I /Y /Q "D:\Repositories\personal\elc.github.io-content" content\ '
+move-windows-content = 'xcopy /E /I /Y /Q extra content\extra '
+test = 'pelican -s conf.py -o output -t theme content'
+test-theme = "pelican -s conf.py -o output -t theme-dev content"
+
+[requires]
+python_version = "3.7"
