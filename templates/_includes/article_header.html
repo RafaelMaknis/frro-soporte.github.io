@@ -1,0 +1,44 @@
+<div class="article__subheader">
+
+    <!-- Metadata -->
+    <span class="article__metadata">
+        <div class="article__metadata-item">
+            <time datetime="{{ article.date }}"><b>{{ article.date.strftime("%Y") }}</b></time>
+        </div>
+
+        <!-- Level -->
+        {% if article.level %}
+            <div class="article__metadata-item">
+                <b>Level: {{ article.level }}</b>
+            </div>
+        {% endif %}
+
+        <!-- Comments -->
+        <div class="article__metadata-item">
+            <b><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a></b>
+        </div>      
+            
+    </span>
+
+    <!-- Badges -->
+    <span class="article__badges">        
+        {% if article.repository %}
+        <a href="{{ article.repository }}" target="_blank" aria-label="Repository">
+            <img alt="Repository" src="{{ SITEURL }}/theme/images/github_logo.svg">
+        </a>
+        {% endif %}
+
+        {% if article.jupyternotebook  %}
+            <a href="{{ article.jupyternotebook }}" aria-label="Jupyter Notebook">
+                <img alt="Jupyter Notebook" src="{{ SITEURL }}/theme/images/Jupyter.svg">
+            </a>
+        {% endif %}
+
+        {% if article.slides  %}
+            <a href="article.slides" aria-label="Slides">
+                <img alt="Slides" src="{{ SITEURL }}/theme/images/RevealJS.svg">
+            </a>
+        {% endif %}
+
+    </span>
+</div>

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title|striptags }} 	&#124; {{ SITENAME }}{% endblock %}
+
+{% block site_image %}<meta itemprop="image" content="{{ article.headerimage }}">{% endblock site_image %}
+
+{% block content %}
+
+<article class="article">
+
+  <header class="article__header">
+    <h1>{{ article.title }}</h1>
+    
+    {% include '_includes/article_header.html' %}
+
+    <!-- Translations -->
+    <div class="article__translations">
+      {% if article.translation %}
+      <a href="{{ SITEURL }}/{{ article.is_translation_of.url }}">{{LANG_MESSAGES[article.lang][1]}} </a>
+      {% if article.translator %}
+          Translated by: {{ article.translator }}  
+      {% endif %}
+      {% endif %}
+
+      {% import '_macros/translations.html' as translations with context %}
+
+      {{ translations.translations_for(article) }}
+    </div>
+    
+  </header>
+
+
+  <section>
+    {{article.content}}
+  </section>
+
+
+  <footer>
+    {% include '_includes/article_footer.html' %}
+
+    <!-- Comments -->
+    {% include "_includes/disqus.html" %}
+  </footer>
+
+</article>
+
+{% endblock content %}
+
+{% block after_external %}
+<script type="text/javascript">
+
+  var options = {
+    sourceAttribute: "src",
+    showCloseButton: true
+  };
+
+  new LuminousGallery(document.querySelectorAll(".gallery"), options);
+</script>
+{% endblock after_external %}

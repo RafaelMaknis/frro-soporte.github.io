@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Author &ndash; {{ SITENAME }}{% endblock %}
+
+{% block content %}
+
+<div class="invisible">
+  <h1>Author</h1>
+
+  <br>
+
+  {%- for author, articles in authors|sort %}
+    {% if author==AUTHOR %}
+
+      <p>{{ AUTHOR_DESCRIPTION }}</p>
+      <a href="{{ SITEURL }}/{{ author.url }}/">All articles &#10093;</a>
+
+    {% endif %}
+  {% endfor %}
+
+  {% if authors|count > 1 %}
+    <h2>Other authors</h2>
+    <br>
+
+    {%- for author, articles in authors|sort %}
+      {% if author!=AUTHOR %}
+
+
+        <p>check</p>
+        <a href="{{ SITEURL }}/{{ author.url }}/">All articles &#10093;</a>
+
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+</div>
+
+{% endblock content %}

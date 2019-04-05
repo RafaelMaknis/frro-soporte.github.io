@@ -1,0 +1,67 @@
+<section class="article-grid">
+    {% for article in articles_page.object_list %}
+    <article class="article article-loop">
+
+        <header class="article__header">
+            <h2><a href="{{ SITEURL }}/{{ article.url }}/">{{ article.title }}</a></h2>
+            {% include '_includes/article_header.html' %}
+            {% include '_includes/article_header_image.html' %}
+
+            <!-- Translations -->
+            <div class="article__translations">
+                {% if article.translation %}
+                <a href="{{ SITEURL }}/{{ article.is_translation_of.url }}">{{LANG_MESSAGES[article.lang][1]}} </a>
+                {% if article.translator %}
+                    Translated by: {{ article.translator }}  
+                {% endif %}
+                {% endif %}
+
+                {% import '_macros/translations.html' as translations with context %}
+
+                {{ translations.translations_for(article) }}
+            </div>
+
+        </header>
+
+        <div class="article__body">
+            {{ article.summary | striptags | truncate(250) }}
+        </div>
+
+        <footer class="article__footer">
+            
+            {% if article.author1 or article.author2 or article.author3 or article.author4 %}
+                Authors: 
+
+                {% if article.author1 %}
+                    </br><a class="article__category" target="_blank" href="{{article.author1website}}" title="{{article.author1}}">{{article.author1}}</a>
+                {% endif %}
+
+                {% if article.author2 %}
+                    </br><a class="article__category" target="_blank" href="{{article.author2website}}" title="{{article.author2}}">{{article.author2}}</a>
+                {% endif %}
+
+                {% if article.author3 %}
+                    </br><a class="article__category" target="_blank" href="{{article.author3website}}" title="{{article.author3}}">{{article.author3}}</a>
+                {% endif %}
+
+                {% if article.author4 %}
+                    </br><a class="article__category" target="_blank" href="{{article.author4website}}" title="{{article.author4}}">{{article.author4}}</a>
+                {% endif %}
+
+            {% endif %}
+            
+            {% if article.tags %}
+                <span class="article_tags">
+                    {% for tag in article.tags %}
+                        <a class="article__category" href="{{ SITEURL }}/{{ tag.url }}" title="All articles with {{ tag.name.title() }} tag">#{{ tag }}</a>
+                    {% endfor %}
+                </span>
+            {% endif %}
+
+            <a class="article__button" href="{{ SITEURL }}/{{ article.url }}/">Continue Reading</a>
+        </footer>
+    </article>
+
+    {% endfor %}
+
+</section>
