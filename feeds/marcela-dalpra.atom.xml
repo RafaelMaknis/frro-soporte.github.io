@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Showcase Oficial de la Cátedra Soporte - UTN FRRo - Marcela Dalpra</title><link href="https://frro-soporte.github.io/" rel="alternate"></link><link href="http://feeds.feedburner.com/feeds/marcela-dalpra.atom.xml" rel="self"></link><id>https://frro-soporte.github.io/</id><updated>2018-10-19T00:00:00-03:00</updated><subtitle></subtitle><entry><title>Spotifesta</title><link href="https://frro-soporte.github.io/posts/spotifesta" rel="alternate"></link><published>2018-10-19T00:00:00-03:00</published><updated>2018-10-19T00:00:00-03:00</updated><author><name>Marcela Dalpra</name></author><id>tag:frro-soporte.github.io,2018-10-19:/posts/spotifesta</id><summary type="html">&lt;p&gt;"Spotifesta" is an API that allows you to share control over the spotify playback of a device.&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="../../blog/images/test-image.jpg"&gt;&lt;img alt="Test" class="b-lazy" data-src="../../blog/images/test-image.jpg" src="https://frro-soporte.github.io/posts/pelican-cms/images/test-image-thumbnail.jpg" width="2000"&gt;&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;"Spotifesta" is an API that allows you to share control over the spotify playback of a device.&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="../../blog/images/test-image.jpg"&gt;&lt;img alt="Test" class="b-lazy" data-src="../../blog/images/test-image.jpg" src="https://frro-soporte.github.io/posts/pelican-cms/images/test-image-thumbnail.jpg" width="2000"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="aiohttp"></category><category term="asyncio"></category></entry></feed>
